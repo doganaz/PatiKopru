@@ -1,0 +1,41 @@
+﻿@model IEnumerable<PatiKopru.Models.Donation>
+@{
+    ViewData["Title"] = "UserDonations";
+}
+
+<h1>Bağış Geçmişiniz</h1>
+
+@if (Model.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Bağış Miktarı</th>
+                <th>Bağış Tarihi</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var donation in Model)
+            {
+                <tr>
+                    <td>
+                        @if (donation.DonationType == "Money")
+                        {
+                            @donation.Amount @Html.Raw("TL")
+                        }
+                        else if (donation.DonationType == "Food")
+                        {
+                            @donation.Amount @Html.Raw("KG")
+                        }
+                    </td>
+                    <td>@donation.Date</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>Henüz bir bağış yapmadınız.</p>
+}
+

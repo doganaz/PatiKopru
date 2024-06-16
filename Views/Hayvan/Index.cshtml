@@ -1,0 +1,78 @@
+﻿@model IEnumerable<PatiKopru.Models.Hayvan> 
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Hayvanlar</h1>
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger" role="alert">
+        @TempData["ErrorMessage"]
+    </div>
+}
+<div>
+    <div>
+        <button id="addHayvanBtn" class="btn btn-outline-primary">Hayvan Kaydı Ekle</button>
+    </div>
+</div>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Hayvan Adı</th>
+            <th>Cins</th>
+            <th>Tür</th>
+            <th>Yaş</th>
+            <th>Adres</th>
+            <th>Sahip</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var hayvan in Model)
+        {
+            <tr>
+                <td>@hayvan.Ad</td>
+                <td>@hayvan.Cins</td>
+                <td>@hayvan.Tur</td>
+                <td>@hayvan.Yas</td>
+                <td>@hayvan.Adres</td>
+                <td>@hayvan.SahipAdSoyad
+                    @if (string.IsNullOrEmpty(hayvan.SahipAdSoyad))
+                    {
+                        <a class="btn btn-outline-primary sahiplen-btn" data-hayvanid="@hayvan.Hayvanid">Sahiplen</a>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section Scripts {
+    <script type="text/javascript">
+        document.getElementById("addHayvanBtn").addEventListener("click", function () {
+            var isAuthenticated = '@ViewBag.IsAuthenticated' === 'True';
+            if (!isAuthenticated) {
+                alert("Hayvan eklemek için giriş yapmalısınız.");
+            } else {
+                window.location.href = '@Url.Action("AddHayvan", "Hayvan")';
+            }
+        });
+    </script>
+}
+@* @section Scripts {
+    <script>
+        $(document).ready(function () {
+            $(".sahiplen-btn").click(function () {
+                var hayvanId = $(this).data("hayvanid");
+                $.post('@Url.Action("Sahiplen", "Hayvan")', { hayvanId: hayvanId })
+                    .done(function () {
+                        // Sahiplenme başarılı olduğunda tablodaki sahip alanını güncelle
+                        $(this).closest("tr").find(".sahip").text("Sizin");
+                        alert("Hayvan başarıyla sahiplendirildi.");
+                    })
+                    .fail(function () {
+                        alert("Bir hata oluştu.");
+                    });
+            });
+        });
+    </script>
+} *@

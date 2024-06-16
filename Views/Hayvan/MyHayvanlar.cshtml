@@ -1,0 +1,38 @@
+﻿@model IEnumerable<PatiKopru.Models.Hayvan>
+@{
+    ViewData["Title"] = "Sahiplendiğim Hayvanlar";
+}
+<h1>Sahiplendiğim Hayvanlar</h1>
+
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger" role="alert">
+        @TempData["ErrorMessage"]
+    </div>
+}
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Hayvan Adı</th>
+            <th>Cins</th>
+            <th>Tür</th>
+            <th>Yaş</th>
+            <th>Adres</th>
+            <th>Sahip</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var hayvan in Model)
+        {
+            <tr>
+                <td>@hayvan.Ad</td>
+                <td>@hayvan.Cins</td>
+                <td>@hayvan.Tur</td>
+                <td>@hayvan.Yas</td>
+                <td>@hayvan.Adres</td>
+                <td>@hayvan.SahipAdSoyad</td>
+            </tr>
+        }
+    </tbody>
+</table>

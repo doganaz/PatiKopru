@@ -1,0 +1,102 @@
+﻿@model PatiKopru.Models.Hayvan
+
+@{
+    ViewData["Title"] = "Hayvan Ekle";
+}
+
+<h1>Hayvan Ekle</h1>
+
+@if (!ViewData.ModelState.IsValid)
+{
+    <div class="alert alert-danger">
+        <ul>
+            @foreach (var modelError in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+            {
+                <li>@modelError.ErrorMessage</li>
+            }
+        </ul>
+    </div>
+}
+
+<form asp-action="AddHayvan" asp-controller="Hayvan" method="post">
+    <div class="form-group">
+        <label for="Ad">Hayvan Adı</label>
+        <input type="text" class="form-control" id="Ad" name="Ad" placeholder="Hayvan Adı" value="@Model?.Ad">
+    </div>
+    <div class="form-group">
+        <label for="Cins">Cins</label>
+        <select class="form-control" id="Cins" name="Cins">
+            <option value="">Seçiniz...</option>
+            <option value="Kedi">Kedi</option>
+            <option value="Köpek">Köpek</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="Tur">Tür</label>
+        <select class="form-control" id="Tur" name="Tur">
+            <option value="">Önce cinsi seçiniz...</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="Yas">Yaşı</label>
+        <input type="number" class="form-control" id="Yas" name="Yas" placeholder="Yaşı" value="@Model?.Yas">
+    </div>
+    <div class="form-group">
+        <label for="Adres">Adres</label>
+        <input type="text" class="form-control" id="Adres" name="Adres" placeholder="Adres" value="@Model?.Adres">
+    </div>
+    <div class="form-group">
+        <label for="SahipId">Sahip</label>
+        <select class="form-control" id="SahipId" name="SahipId">
+            <option value="">Seçiniz...</option>
+            @foreach (var user in ViewBag.Users)
+            {
+                <option value="@user.Userid">@user.Ad @user.Soyad</option>
+            }
+        </select>
+    </div>
+    @* <div class="form-check">
+        <input type="hidden" name="MyAnimal" value="false" />
+        <input class="form-check-input" type="checkbox" id="myAnimalCheckbox">
+        <label class="form-check-label" for="myAnimalCheckbox">
+            Bu hayvan bana ait
+        </label>
+    </div> *@
+    <button type="submit" class="btn btn-primary">Ekle</button>
+</form>
+
+<script>
+    document.getElementById("Cins").addEventListener("change", function () {
+        var cins = this.value;
+        var turDropdown = document.getElementById("Tur");
+        turDropdown.innerHTML = ""; // Temizle
+        var turler = [];
+
+        if (cins === "Kedi") {
+            turler = ["Bilmiyorum(Sokak Kedisi)", "Van Kedisi", "Ankara Kedisi", "Tekir Kedi", "İran Kedisi", "Sarman Kedi", "British Shorthair"];
+        } else if (cins === "Köpek") {
+            turler = ["Golden Retriever", "Labrador", "Kangal", "Alman Kurdu", "Akbaş", "Husky", "Buldog", "Beagle", "Rottweiler", "Pomeranian"];
+        }
+
+        turler.forEach(function (tur) {
+            var option = document.createElement("option");
+            option.value = tur;
+            option.text = tur;
+            turDropdown.appendChild(option);
+        });
+    });
+</script>
+@* @section Scripts {
+    <script type="text/javascript">
+        var myAnimalCheckbox = document.getElementById("myAnimalCheckbox");
+        var myAnimalHiddenInput = document.querySelector('input[name="MyAnimal"]');
+
+        myAnimalCheckbox.addEventListener("change", function () {
+            if (myAnimalCheckbox.checked) {
+                myAnimalHiddenInput.value = "true";
+            } else {
+                myAnimalHiddenInput.value = "false";
+            }
+        });
+    </script>
+} *@

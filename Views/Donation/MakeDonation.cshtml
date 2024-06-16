@@ -1,0 +1,40 @@
+﻿@model PatiKopru.Models.Donation
+@{
+    ViewData["Title"] = "MakeDonation";
+}
+
+
+<h1>Bağış Yap</h1>
+
+<form asp-action="MakeDonation" asp-controller="Donation" method="post">
+    <div class="form-group">
+        <label for="Amount">Bağış Miktarı</label>
+        <input type="number" class="form-control" id="Amount" name="Amount" required />
+    </div>
+    <div class="form-group">
+        <label for="DonationType">Bağış Türü</label>
+        <select class="form-control" id="DonationType" name="DonationType" required>
+            <option value="Money">Para</option>
+            <option value="Food">Mama</option>
+        </select>
+    </div>
+    <br />
+    <button type="submit" class="btn btn-primary">Bağış Yap</button>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var successMessage = '@TempData["SuccessMessage"]';
+            if (successMessage) {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Başarılı!',
+                    text: successMessage,
+                    confirmButtonText: 'Tamam'
+                });
+            }
+        });
+    </script>
+}

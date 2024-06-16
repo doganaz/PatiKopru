@@ -1,0 +1,30 @@
+﻿@model IEnumerable<PatiKopru.Models.Veteriner>
+@{
+    ViewData["Title"] = "Veterinerler";
+}
+
+<h1>Veterinerlerimiz</h1>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Adı</th>
+            <th>Soyadı</th>
+            <th>Email</th>
+            <th>Adres</th>
+            <th>Telefon</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var veteriner in Model)
+        {
+            <tr>
+                <td>@veteriner.Ad</td>
+                <td>@veteriner.Soyad</td>
+                <td>@veteriner.Email</td>
+                <td>@veteriner.Adres</td>
+                <td>@veteriner.Telefon</td>
+            </tr>
+        }
+    </tbody>
+</table>

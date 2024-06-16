@@ -1,0 +1,89 @@
+﻿html {
+  font-size: 20px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+    font-family: 'Quando', serif;
+    margin-bottom: 60px;
+    background-color: #fdf8ef;
+}
+h1 {
+    color: #542E54;
+}
+
+.img-fluid rounded{
+    height:fit-content;
+    align-content:center;
+}
+
+.navbar {
+    background-color: #bb97bb; /* Açık mor */
+}
+.navbar-nav > li {
+    margin-right: 12px; /* veya istediğiniz miktarı ayarlayın */
+}
+.navbar-nav .nav-link, .navbar-brand {
+    font-family: 'Quando', serif;
+    font-size: 1rem; /* Yazı boyutunu ayarlar */
+}
+
+.navbar-brand {
+    font-family: 'Quando', serif;
+    font-size: 1.4rem; /* Brand yazı boyutunu ayarlar */
+}
+
+.navbar-brand img {
+    height: 40px; /* Logonun yüksekliğini ayarlar */
+    margin-right: 10px; /* Logonun sağ tarafına boşluk ekler */
+}
+
+.nav-link {
+    color: #fff !important;
+}
+
+    .nav-link:hover {
+        color: #f4e4f4 !important; /* Daha açık bir mor */
+    }
+
+.footer {
+    text-align: center;
+    padding: 10px;
+    background: #794379; /*koyumor*/
+    color: #fff;
+    margin-top: 20px;
+}
+
+.btn-primary {
+    background-color: #FFA500; /* Turuncu */
+    border-color: #FFA500;
+}
+
+    .btn-primary:hover {
+        background-color: #ff8c00; /* Koyu turuncu */
+        border-color: #ff8c00;
+    }
+
+.carousel-item {
+    transition: transform 2s ease, opacity 2s ease;
+
+}
+    .carousel-item img {
+        max-height: 500px;
+        object-fit: cover;
+
+    }

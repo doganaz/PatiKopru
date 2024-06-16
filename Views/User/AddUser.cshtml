@@ -1,0 +1,45 @@
+﻿@model User
+@{
+    ViewData["Title"] = "Kayıt Ol";
+}
+
+<h1>Kayıt Ol</h1>
+
+<form asp-action="AddUser" asp-controller="User" method="post">
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="Ad">Ad</label>
+            <input type="text" class="form-control" id="Ad" name="Ad" placeholder="Ad" value="@Model?.Ad">
+        </div>
+        <div class="form-group col-md-6">
+            <label for="Soyad">Soyad</label>
+            <input type="text" class="form-control" id="Soyad" name="Soyad" placeholder="Soyad" value="@Model?.Soyad">
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="Email">Email</label>
+            <input type="email" class="form-control" id="Email" name="Email" placeholder="Email" value="@Model?.Email">
+        </div>
+        <div class="form-group col-md-6">
+            <label for="Password">Password</label>
+            <input type="password" class="form-control" id="Password" name="Password" placeholder="Password" value="@Model?.Password">
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="Telefon">Telefon</label>
+            <input type="text" class="form-control" id="Telefon" name="Telefon" placeholder="Telefon" value="@Model?.Telefon">
+        </div>
+        <div class="form-group col-md-6">
+            <label for="Adres">Adres</label>
+            <input type="text" class="form-control" id="Adres" name="Adres" placeholder="Adres" value="@Model?.Adres">
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Kayıt Ol</button>
+</form>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

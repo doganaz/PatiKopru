@@ -1,0 +1,91 @@
+﻿
+@{
+    ViewData["Title"] = "Sokak Hayvanları Hakkında";
+}
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Quando&display=swap">
+    <style>
+        body {
+            font-family: 'Quando', serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #fdf8ef;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            background: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #542E54; 
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .section {
+            margin-bottom: 20px;
+        }
+
+            .section img {
+                max-width: 100%;
+                height: auto;
+                border-radius: 8px;
+                text-align:center;
+            }
+
+            .section h2 {
+                color: #794379;
+                margin-top: 10px;
+            }
+
+            .section p {
+                color: #555;
+                text-align: center;
+            }
+
+        .footer {
+            text-align: center;
+            padding: 10px;
+            background: #794379;
+            color: #fff;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Sokak Hayvanları Hakkında</h1>
+        <div class="section">
+            <img src="~/img/sokakkedisi.jpg" alt="Sokak Kedisi" class="img-fluid rounded" />
+            <h2>Sokak Kedileri</h2>
+            <p>Türkiye'de sokak kedileri şehirlerin vazgeçilmez bir parçasıdır. Sokak kedileri, genellikle insanların bıraktığı yiyecekler ile beslenir ve birçok gönüllü tarafından bakımları yapılır. Onların hayatlarını iyileştirmek için pek çok hayvan sever çeşitli projeler yürütmektedir.</p>
+        </div>
+        <div class="section">
+            <img src="~/img/sokakkopegi.jpg" alt="Sokak Köpeği" class="img-fluid rounded" />
+            <h2>Sokak Köpekleri</h2>
+            <p>Sokak köpekleri, Türkiye'nin her yerinde görülebilen sevimli dostlarımızdır. Onlara yardım etmek için birçok barınak ve hayvansever gönüllüler çalışmaktadır. Sokak köpeklerinin daha iyi yaşam koşullarına sahip olması için toplumsal farkındalık artırılmalıdır.</p>
+        </div>
+        <div class="section">
+            <img src="~/img/dogscats.jpg" alt="dogscats" class="img-fluid rounded" />
+            <h2>Onlar sokaktaki dostlarınız</h2>
+            <p>
+                Doğru olan bir şey vardır: Çevresindeki mutsuzluk arttıkça insanın mutluluk çemberi de aynı oranda daralır. Sokak hayvanlarına sahip çıkmak böylesi bencilce bir sebepten dolayı bile önemlidir. Hepimiz biliyoruz, günde en az 2-3 dakikasını sevimli hayvan videoları seyretmeden geçiren kimse yoktur ama acılı gözlerle bakan bir hayvan gördüğümüzde ya başımızı diğer yöne çeviriyoruz ya da kanalı değiştiriyoruz. Çünkü hem günlük yaşamın zorlu şartları altında acıya ve mutsuzluğa tahammülümüz kalmadı, hem de yaşattığı çaresizlik hissini kaldıramıyoruz. Fakat asıl gerçek, aslında onların bu çaresizliğinden hepimizin bir parça sorumlu olduğunu derinlerde bir yerlerde hissediyor olmamız…
+            </p>
+        </div>
+    </div>
+    <div class="footer">
+        Sokak hayvanlarını koruyalım ve onlara yardım edelim.
+    </div>
+</body>
+</html>

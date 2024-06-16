@@ -1,0 +1,14 @@
+﻿@model Donation
+@{
+    ViewData["Title"] = "Teşekkürler";
+}
+
+<h2>Teşekkürler</h2>
+<p>Bağışınız için teşekkür ederiz. Bağışınız başarılı bir şekilde gerçekleştirilmiştir.</p>
+
+<script>
+    setTimeout(function() {
+        window.location.href = '@Url.Action("MakeDonation", "Donation")';
+    }, 3000); // 3000 milisaniye = 3 saniye
+</script>
+

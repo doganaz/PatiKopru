@@ -1,0 +1,24 @@
+﻿@model User
+@{
+    ViewData["Title"] = "Login";
+}
+
+<h1>Kullanıcı Girişi</h1>
+<form asp-action="Login" asp-controller="User" method="post">
+    <div class="form-group">
+        <label for="Email">Email</label>
+        <input type="email" class="form-control" id="Email" name="Email" placeholder="Email" value="@Model?.Email">
+    </div>
+    <div class="form-group">
+        <label for="Password">Password</label>
+        <input type="password" class="form-control" id="Password" name="Password" placeholder="Password">
+    </div>
+    <br />
+    <button type="submit" class="btn btn-primary">Giriş Yap</button>
+    <a asp-action="AddUser">Hesabınız yok mu? Kayıt olun.</a>
+</form>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
